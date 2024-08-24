@@ -906,7 +906,7 @@ async function getAllChannels(gameId) {
   const [
     rows,
   ] = await promisePool.query(
-    `select gch_slack_id, gch_name from game_channels where gch_gms_id = ? and !gch_archived`,
+    `select gch_slack_id, gch_name from game_channels where gch_gms_id = ? and !gch_archived order by gch_name asc`,
     [gameId]
   );
   return rows;
